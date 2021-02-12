@@ -3,13 +3,12 @@
 * Type of Challenge: Consolidation
 * Duration: 3 days
 * Deadline: 17/02/21 17PM
-
-Deployment strategy :
-* Github page
+* Deployment strategy :
+  * Github page
 * Team challenge : In groups of three
-* frontend: 1 or 2
-* backend: 1 or 2
-* project management : 1
+  * frontend: 1 or 2
+  * backend: 1 or 2
+  * project management : 1
 
 ## Mission objectives
 At the end of this challenge you should have improved your:
