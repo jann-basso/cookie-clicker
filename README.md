@@ -63,11 +63,11 @@ Your cookie clicker must be pretty, make it look good with CSS or some extra Jav
 
 ## Deliverables
 1. Publish your source code on the GitHub repository.
-1. Pimp up the readme file:
+2. Pimp up the readme file:
   * What, Why, When, How, Who.
   * Pending things to do
   * It must contain a link to the "live" version. The "live" version must contain a link to the source code on GitHub.
-1. Publish the link to the "live" version on Discord.
+3. Publish the link to the "live" version on Discord.
 
 Steps
 * Create the repository
