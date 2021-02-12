@@ -1,4 +1,4 @@
-🍪 [Cookie Clicker](https://github.com/becodeorg/BXL-Swartz-4-27/blob/master/2.The-Hill/1.Javascript/cookieClicker.md)
+# [Cookie Clicker](https://github.com/becodeorg/BXL-Swartz-4-27/blob/master/2.The-Hill/1.Javascript/cookieClicker.md)
 * Repository: Javascript
 * Type of Challenge: Consolidation
 * Duration: 3 days
