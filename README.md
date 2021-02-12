@@ -70,11 +70,10 @@ Your cookie clicker must be pretty, make it look good with CSS or some extra Jav
 3. Publish the link to the "live" version on Discord.
 
 Steps
-* Create the repository
-* Study the request (What & Why ?)
-* Identify technical challenges (How ?)
-* UX Prototype ...
-* Evaluation criterias
+1. Create the repository
+2. Study the request (What & Why ?)
+3. Identify technical challenges (How ?)
+4. UX Prototype ...
 
 ## Resources
 * [cookie clicker](http://orteil.dashnet.org/cookieclicker/)
