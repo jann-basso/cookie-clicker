@@ -1,0 +1,101 @@
+/* ---------------- GENERAL STYLE ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+main {
+    display: grid;
+    align-items: center;
+    gap: 0px;
+
+}
+
+article, header {
+    background-color: honeydew;
+    padding: 5px;
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* -------------------- HEADER -------------------- */
+header {
+    padding: 30px;
+    margin-bottom: 10px;
+}
+
+/* --------------- COUNTER AND SCORE --------------- */
+#sec-counter-score {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    align-items: center;
+}
+
+
+/* --------------------- COOKIE --------------------- */
+#sec-cookie {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto; 
+}
+
+
+/* --------------------- BUTTONS --------------------- */
+#sec-buttons { 
+    height: 100%;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-areas:
+    "autoclick autoclick"
+    "multiplier bonus" 
+}
+
+#autoclick {
+    grid-area: autoclick;
+}
+
+#multiplier {
+    grid-area: multiplier;
+}
+
+#bonus {
+    grid-area: bonus;
+}
+
+
+
+
+
+/* -------------- ADAPTING SCREEN SIZES -------------- */
+
+
+@media screen and (min-width: 800px) {
+    main {
+       grid-template-columns: 1fr 1fr;
+       grid-template-rows: 100px 1fr;
+   }
+
+   #sec-counter-score {
+        grid-column: span 2;
+   }
+
+   #sec-buttons {  
+       grid-template-columns: 1fr;
+       grid-template-areas:
+        "autoclick"
+        "multiplier"
+        "bonus";
+   }  
+}
