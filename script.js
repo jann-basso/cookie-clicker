@@ -8,6 +8,7 @@ var autoclickprice = 1000;
 var bonus = 1;
 var bonustimer = 30;
 var bonusprice = 5000;
+var igual;
 
 
 
