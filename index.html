@@ -11,48 +11,55 @@
 
 <section id="container">
 
+    <!--HEADER-->
     <header>
         <h1>Cookie Clicker</h1>
     </header>
 
+
     <main>
-     
+    <!--COUNTER AND SCORE-->
         <section id="sec-counter-score">
             <article id="counter">
-                <label id="counter-lbl-title" for="bonus">Counter</label>
+                <label id="counter-lbl-title" for="bonus">Counter:</label>
                 <label id="counter-lbl" for="bonus">4</label> <!--that will change on JS-->
             </article>
 
             <article id="score">
-                <label id="score-lbl-title" for="bonus">Score</label>
+                <label id="score-lbl-title" for="bonus">Score:</label>
                 <label id="score-lbl" for="score">200</label> <!--that will change on JS-->
             </article>
         </section>
 
+    <!--COOKIE-->    
         <section id="sec-ccokie">
             <article id="cookie">
                 <button id="cookie-btn">
-                    <img src="img/btnplaceholder.png">
+                    <img src="img/cookie-450px.png">
                 </button>
             </article>
         </section>
 
+    <!--BUTTONS-->
         <section id="sec-buttons">
             <article id="autoclick">
-                <button id="autoclick-btn">AUTOCLICK</button>
+                <button class="thebtns" id="autoclick-btn">
+                <p class="btn-title" id="autoclick-btn-title">AUTOCLICK</p>
+                <p id="autoclick-btn-timer">0:30</p> <!--that will change on JS-->
+                </button>
             </article>
 
             <article id="multiplier">
-                <button id="multiplier-btn">
-                    <p id="mult-btn-title">MULTIPLIER</p>
+                <button class="thebtns" id="multiplier-btn">
+                    <p class="btn-title" id="mult-btn-title">MULTIPLIER</p>
                     <p id="mult-btn-times">x5</p> <!--that will change on JS-->
                     <p id="mult-btn-points">10 points</p> <!--that will change on JS-->
                 </button>
             </article>
 
             <article id="bonus">
-                <button id="bonus-btn">
-                    <p id="bonus-btn-title">BONUS</p>
+                <button class="thebtns" id="bonus-btn">
+                    <p class="btn-title" id="bonus-btn-title">BONUS</p>
                     <p id="bonus-btn-perclick">200% per click</p> <!--that will change on JS-->
                     <p id="bonus-btn-timer">0:30</p> <!--that will change on JS-->
                 </button>

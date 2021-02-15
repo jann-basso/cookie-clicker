@@ -1,13 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+
 /* ---------------- GENERAL STYLE ---------------- */
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+
+body {
+    background: rgb(21,91,156);
+    background: radial-gradient(circle, rgba(21,91,156,1) 44%, rgba(1,67,124,1) 81%);
 }
 
 #container {
     height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr;
+   
 }
 
 main {
@@ -18,7 +28,6 @@ main {
 }
 
 article, header {
-    background-color: honeydew;
     padding: 5px;
     text-align: center;
 }
@@ -31,7 +40,13 @@ button {
 /* -------------------- HEADER -------------------- */
 header {
     padding: 30px;
-    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: 'Ranchers', cursive;
+    text-shadow: 2px 2px 2px black;
+   
 }
 
 /* --------------- COUNTER AND SCORE --------------- */
@@ -39,7 +54,21 @@ header {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    align-items: center;
+    align-items: flex-start;
+}
+
+#counter, #score { 
+    background-color: rgb(2, 27, 48);
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+#counter-lbl-title, #score-lbl-title {
+    font-size: 20px;
+}
+
+#counter-lbl, #score-lbl {
+    font-size: 20px;
 }
 
 
@@ -48,6 +77,12 @@ header {
     height: 100%;
     display: grid;
     grid-template-rows: auto; 
+}
+
+#cookie, #cookie-btn {
+    border: none;
+    background: transparent;
+    overflow: hidden;
 }
 
 
@@ -60,6 +95,24 @@ header {
     grid-template-areas:
     "autoclick autoclick"
     "multiplier bonus" 
+}
+
+.thebtns {
+    background-color: rgb(2, 34, 61);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 70%;
+    box-shadow: inset -4px -4px 5px  rgb(3, 16, 27);
+
+}
+
+.thebtns:hover {
+    box-shadow: inset -10px -10px 20px  rgb(3, 16, 27);
+}
+
+.btn-title {
+    font-size: 20px;
 }
 
 #autoclick {
@@ -98,4 +151,10 @@ header {
         "multiplier"
         "bonus";
    }  
+
+   .thebtns {
+    padding: 25px;
+    width: 50%;
+}
+
 }
