@@ -9,15 +9,33 @@
 }
 
 body {
+    width: 100%;
+    height: 100%;
+    /*
     background: rgb(21,91,156);
     background: radial-gradient(circle, rgba(21,91,156,1) 44%, rgba(1,67,124,1) 81%);
+    */
+    background: linear-gradient(-45deg, rgb(16, 75, 131), rgb(2, 45, 82), rgb(71, 119, 163), rgb(19, 58, 95));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
 }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
 
 #container {
     height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr;
-   
 }
 
 main {
@@ -34,6 +52,8 @@ article, header {
 button {
     cursor: pointer;
 }
+
+
 
 
 /* -------------------- HEADER -------------------- */
@@ -74,7 +94,7 @@ h1 {
 }
 
 #counter-lbl, #score-lbl {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
     color: #4f221a; 
 }
@@ -92,6 +112,18 @@ h1 {
     background: transparent;
     overflow: hidden;
 }
+
+#cookie-img {
+    width: 90%;
+    margin: 10px;
+    z-index: 1;
+}
+
+#cookie-img:hover {
+    content: url("img/cookie-cracked.png") 
+}
+
+
 
 
 /* --------------------- BUTTONS --------------------- */
@@ -135,7 +167,9 @@ h1 {
     grid-area: bonus;
 }
 
-
+#floating-cookies {
+    visibility: hidden;
+}
 
 
 
@@ -180,8 +214,106 @@ h1 {
         width: 50%;
         height: 100px;
    }
+}
 
-  
 
+@media screen and (min-width: 801px) { /*1330px*/
+   /* floating cookies */
+   #floating-cookies {
+        visibility: visible;
+        position: relative;
+        background-color: red;
+        height: 65%;
+    }
+    
+    .float-cookie {
+        position: absolute;
+        width: 5%;
+        animation: fall 5s linear infinite;
+    }
+
+    .float-cookie-1 {
+        top: 200px;
+        left: 5%;
+        animation-delay: 2s;
+    }
+
+    .float-cookie-2 {
+        top: 100px;
+        right: 3%;
+    }
+
+    .float-cookie-3 {
+        top: 70px;
+        left: 20%;
+        animation-delay: 4s;
+    }
+
+    .float-cookie-4 {
+        top: 200px;
+        right: 5%;
+        animation-delay: 1s;
+    }
+
+    .float-cookie-5 {
+        top: 400px;
+        left: 12%;
+        animation-delay: 3s;
+    }
+
+    .float-cookie-6 {
+        top: 300px;
+        right: 10px;
+        animation-delay: 2s;
+    }
+
+    .float-cookie-7 {
+        top: 25px;
+        left: 10%;
+        animation-delay: 4s;
+    }
+
+    .float-cookie-8 {
+        top: 40px;
+        right: 16%;
+        animation-delay: 3s;
+    }
+
+    .float-cookie-9 {
+        top: 300px;
+        left: 15%;
+        animation-delay: 4s;
+    }
+
+    .float-cookie-10 {
+        top: 350px;
+        right: 13%;
+        animation-delay: 1s;
+    }
+
+    .float-cookie-11 {
+        top: 410px;
+        right: 5%;
+        animation-delay: 3s;  
+    }
+
+    @keyframes fall{
+        0% {
+            opacity: 0;
+            top: 50%;
+            transform: translateY(-10px) rotate(30deg);
+            transform: translateX(-5%) rotate(0deg);
+        }
+        40% {
+            opacity: 0.9;
+            transform: translateY(40px) rotate(20deg);
+            transform: translateX(-10%) rotate(90deg);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(-10px) rotate(30deg);
+            transform: translateX(-5%) rotate(225deg);
+        }
+    }
 
 }
