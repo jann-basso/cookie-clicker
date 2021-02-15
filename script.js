@@ -58,7 +58,7 @@ addClick = () => {
 
 addScore = () => {
    score = score + (points * multiplier) * bonus;
-   document.getElementById("score-lbl").innerHTML = score;   
+   document.getElementById("score-lbl").innerHTML = score  + " points";   
    ifMultiplier();
    ifAutoclick();
    ifBonus();
@@ -66,7 +66,7 @@ addScore = () => {
 
 buyButton = (buttonprice) => {
    score = score - buttonprice;
-   document.getElementById("score-lbl").innerHTML = score;
+   document.getElementById("score-lbl").innerHTML = score  + " points";
    buttonprice = buttonprice * 2;
    ifMultiplier();
    ifAutoclick();
