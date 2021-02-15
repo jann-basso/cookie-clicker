@@ -13,12 +13,12 @@ var bonusprice = 5000;
 
 
 document.getElementById("counter-lbl").innerHTML = counter;
-document.getElementById("score-lbl").innerHTML = score + "points";
+document.getElementById("score-lbl").innerHTML = score + " points";
 document.getElementById("mult-btn-times").innerHTML = "x " + multiplier;
-document.getElementById("mult-btn-points").innerHTML = multiplierprice + "points";
-document.getElementById("autoclick-btn-points").innerHTML = autoclickprice + "points";
+document.getElementById("mult-btn-price").innerHTML = multiplierprice + " points";
+document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
 document.getElementById("autoclick-btn-timer").innerHTML = "0:" + autoclicktimer;
-document.getElementById("bonus-btn-points").innerHTML = bonusprice + "points";
+document.getElementById("bonus-btn-price").innerHTML = bonusprice + " points";
 document.getElementById("bonus-btn-timer").innerHTML = "0:" + bonustimer;
 
 
@@ -36,7 +36,7 @@ document.getElementById("multiplier-btn").addEventListener("click", () => {
         multiplierprice = multiplierprice * 2;
         multiplier = multiplier + 1; 
         document.getElementById("mult-btn-times").innerHTML = "x" + multiplier;
-        document.getElementById("mult-btn-points").innerHTML = multiplierprice + "points";      
+        document.getElementById("mult-btn-price").innerHTML = multiplierprice + " points";      
    }
 });
 
@@ -45,7 +45,7 @@ document.getElementById("autoclick-btn").addEventListener("click", () => {
       score = score - autoclickprice;
       document.getElementById("score-lbl").innerHTML = score;
       autoclickprice = autoclickprice * 2;
-      document.getElementById("autoclick-btn-points").innerHTML = autoclickprice + "points";
+      document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
       autoclicktimer= 30;
       const autoclickinterval = setInterval(count, 1000);
       function count(){
@@ -67,7 +67,7 @@ document.getElementById("bonus-btn").addEventListener("click", () => {
       score = score - bonusprice;
       document.getElementById("score-lbl").innerHTML = score;
       bonusprice = bonusprice * 2;
-      document.getElementById("bonus-btn-points").innerHTML = bonusprice + "points";
+      document.getElementById("bonus-btn-price").innerHTML = bonusprice + " points";
       bonus = 2;
       bonustimer= 30;
       const bonusinterval = setInterval(count, 1000);
