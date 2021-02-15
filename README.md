@@ -49,13 +49,13 @@ Buying a lot of multiplier is way too easy. For more fun, make it so that each t
 - [x] Step 9: display the cost
 In the text of the multiplier button you should also have the price of the upgrade.
 
-Step 10: auto-clicker
+- [x] Step 10: auto-clicker
 Implement a new improvement to buy, the auto-click. As the name might suggest this bonus will automatically add a click to your score each x seconds.
 
-Step 11: bonus
+- [x] Step 11: bonus
 Implement yet another improvement to buy, the bonus. It should grant the player a boost in score of 200% per click for 30 seconds. When purchased the player should see a timer with the remaining time inside the bonus button.
 
-Step 12: deactivate the buttons
+- [x] Step 12: deactivate the buttons
 Make it so that, if the player doesn’t have the points to purchase a multiplier, an auto-click or an other bonus, he can’t.
 
 Step 13: make it pretty
