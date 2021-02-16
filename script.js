@@ -19,12 +19,8 @@ var bonusOn = false;
 var bonusprice = 5000;
 var bonusbtn = document.getElementById("bonus-btn");
 bonusbtn.disabled = true;
-var cookiesound = document.createElement("audio");
-cookiesound.setAttribute("src", "mp3/crunch.mp3");
-cookiesound.setAttribute("preload", "auto");
-cookiesound.setAttribute("controls", "none");
-cookiesound.setAttribute("style", "display: none;");
-document.body.appendChild(cookiesound);
+
+// INSERT BACKGROUND MUSIC //
 var music = document.createElement("audio");
 music.setAttribute("src", "mp3/music.mp3");
 music.setAttribute("preload", "auto");
@@ -34,6 +30,21 @@ music.loop = true;
 music.volume = 0.2;
 music.setAttribute("style", "display: none;");
 document.body.appendChild(music);
+
+// CREATE SOUND FX //
+var cookiesound = document.createElement("audio");
+cookiesound.setAttribute("src", "mp3/crunch.mp3");
+cookiesound.setAttribute("preload", "auto");
+cookiesound.setAttribute("controls", "none");
+cookiesound.setAttribute("style", "display: none;");
+document.body.appendChild(cookiesound);
+var buysound = document.createElement("audio");
+buysound.setAttribute("src", "mp3/buy.mp3");
+buysound.setAttribute("preload", "auto");
+buysound.setAttribute("controls", "none");
+buysound.setAttribute("style", "display: none;");
+buysound.volume = 0.5;
+document.body.appendChild(buysound);
 
 
 // DISPLAY INITIAL VALUES //
@@ -107,6 +118,8 @@ addScore = () => {
 buyButton = (buttonprice) => {
    score = score - buttonprice;
    document.getElementById("score-lbl").innerHTML = score  + " points";
+   buysound.currentTime = 0;
+   buysound.play();
    switch (buttonprice) {
       case multiplierprice :
          buttonprice = buttonprice * 2;
