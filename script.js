@@ -9,12 +9,13 @@ var multiplierprice = 300;
 var multiplierbtn = document.getElementById("multiplier-btn");
 multiplierbtn.disabled = true;
 var autoclicktimer = 10;
+var autoclickOn = false;
 var autoclickprice = 1000;
 var autoclickbtn = document.getElementById("autoclick-btn");
 autoclickbtn.disabled = true;
-var autoclickintervalOn = false;
 var bonus = 1;
 var bonustimer = 30;
+var bonusOn = false;
 var bonusprice = 10000;
 var bonusbtn = document.getElementById("bonus-btn");
 bonusbtn.disabled = true;
@@ -45,9 +46,9 @@ ifMultiplier = () => {
    }
 }
 
-// HIGHLIGHTS AUTOCLICK BUTTON WHEN AVAILABLE TO BUY //
+// HIGHLIGHTS & ACTIVATES AUTOCLICK BUTTON WHEN AVAILABLE TO BUY //
 ifAutoclick = () => {
-   if (score >= autoclickprice && !autoclickintervalOn) {
+   if (score >= autoclickprice && !autoclickOn) {
       autoclickbtn.setAttribute("style", "border: solid red 2px;");
       autoclickbtn.disabled = false;
    }
@@ -57,23 +58,25 @@ ifAutoclick = () => {
    }
 }
 
-// HIGHLIGHTS BONUS BUTTON WHEN AVAILABLE TO BUY //
+// HIGHLIGHTS & ACTIVATES BONUS BUTTON WHEN AVAILABLE TO BUY //
 ifBonus = () => {
-   if (score >= bonusprice && !bonusbtn.disabled){
+   if (score >= bonusprice && !bonusOn){
       bonusbtn.setAttribute("style", "border: solid red 2px;");
+      bonusbtn.disabled = false;
    }
    else{
       bonusbtn.setAttribute("style", "border: none;");
+      bonusbtn.disabled = true;
    }
 }
 
-// ADDS CLICK TO COUNT & UPDATES COUNTER DISPLAY //
+// ADDS CLICK TO COUNT + UPDATES COUNTER DISPLAY //
 addClick = () => {
    counter = counter + 1;
    document.getElementById("counter-lbl").innerHTML = counter;
 }
 
-// ADDS POINTS TO SCORE + UPDATES SCORE DISPLAY & VERIFIES PURCHASES OPTIONS//
+// ADDS POINTS TO SCORE + UPDATES SCORE DISPLAY + VERIFIES PURCHASES OPTIONS//
 addScore = () => {
    score = score + (points * multiplier) * bonus;
    document.getElementById("score-lbl").innerHTML = score  + " points";   
@@ -82,7 +85,7 @@ addScore = () => {
    ifBonus();
 }
 
-// UPDATES SCORE & BUTTON PRICES //
+// UPDATES SCORE & BUTTON PRICES + VERIFIES PURCHASES OPTIONS //
 buyButton = (buttonprice) => {
    score = score - buttonprice;
    document.getElementById("score-lbl").innerHTML = score  + " points";
@@ -124,14 +127,14 @@ multiplierbtn.addEventListener("click", () => {
 // HANDLES AUTOCLICK BUTTON (10 CLICKS/SECOND FOR 10 SECONDS) & COUNTDOWN INTERVAL //
 autoclickbtn.addEventListener("click", () => { 
    if (score >= autoclickprice) {
-      autoclickintervalOn = true;
+      autoclickOn = true;
       autoclickprice = buyButton(autoclickprice);
       document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
       autoclicktimer= 10;
       const autoclickinterval = setInterval(count, 1000);
       function count() {   // COUNTS 10 SECONDS //
          if (autoclicktimer <= 0) {            
-            autoclickintervalOn = false;
+            autoclickOn = false;
             clearInterval(autoclickinterval);
          }
          var turbotimer = 1;  
@@ -153,7 +156,7 @@ autoclickbtn.addEventListener("click", () => {
 // HANDLES BONUS BUTTON & COUNTDOWN INTERVAL //
 bonusbtn.addEventListener("click", () => { 
    if (score >= bonusprice) {
-      toggleActive("bonus-btn");
+      bonusOn = true;
       bonusprice = buyButton(bonusprice);
       document.getElementById("bonus-btn-price").innerHTML = bonusprice + " points";
       bonus = 2;
@@ -162,7 +165,7 @@ bonusbtn.addEventListener("click", () => {
       function count(){    // COUNTS 30 SECONDS //
          if (bonustimer <= 0) {
             bonus = 1;
-            toggleActive("bonus-btn");
+            bonusOn = false;
             clearInterval(bonusinterval);
          }  
          document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " seconds";
