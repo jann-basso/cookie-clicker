@@ -16,7 +16,7 @@ autoclickbtn.disabled = true;
 var bonus = 1;
 var bonustimer = 30;
 var bonusOn = false;
-var bonusprice = 10000;
+var bonusprice = 5000;
 var bonusbtn = document.getElementById("bonus-btn");
 bonusbtn.disabled = true;
 
@@ -60,11 +60,11 @@ ifAutoclick = () => {
 
 // HIGHLIGHTS & ACTIVATES BONUS BUTTON WHEN AVAILABLE TO BUY //
 ifBonus = () => {
-   if (score >= bonusprice && !bonusOn){
+   if (score >= bonusprice && !bonusOn) {
       bonusbtn.setAttribute("style", "border: solid red 2px;");
       bonusbtn.disabled = false;
    }
-   else{
+   else {
       bonusbtn.setAttribute("style", "border: none;");
       bonusbtn.disabled = true;
    }
@@ -162,7 +162,7 @@ bonusbtn.addEventListener("click", () => {
       bonus = 2;
       bonustimer= 30;
       const bonusinterval = setInterval(count, 1000);
-      function count(){    // COUNTS 30 SECONDS //
+      function count() {    // COUNTS 30 SECONDS //
          if (bonustimer <= 0) {
             bonus = 1;
             bonusOn = false;
