@@ -136,19 +136,25 @@ addScore = () => {
 
 // UPDATES SCORE & BUTTON PRICES + VERIFIES PURCHASES OPTIONS //
 buyButton = (buttonprice) => {
-   score = score - buttonprice;
-   document.getElementById("score-lbl").innerHTML = score  + " points";
    buysound.currentTime = 0;
    buysound.play();
+   score = score - buttonprice;
+   document.getElementById("score-lbl").innerHTML = score  + " points";
    switch (buttonprice) {
       case multiplierprice :
          buttonprice = buttonprice * 2;
+         multipliersound.currentTime = 0;
+         multipliersound.play();
          break;
       case autoclickprice :
          buttonprice = buttonprice + 2000;
+         autoclicksound.currentTime = 0;
+         autoclicksound.play();
          break;
       case bonusprice :
          buttonprice = buttonprice + 10000;
+         bonussound.currentTime = 0;
+         bonussound.play();
          break;
    }
    ifMultiplier();
