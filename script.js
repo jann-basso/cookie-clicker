@@ -25,6 +25,16 @@ cookiesound.setAttribute("preload", "auto");
 cookiesound.setAttribute("controls", "none");
 cookiesound.setAttribute("style", "display: none;");
 document.body.appendChild(cookiesound);
+var music = document.createElement("audio");
+music.setAttribute("src", "mp3/music.mp3");
+music.setAttribute("preload", "auto");
+music.setAttribute("controls", "none");
+music.autoplay = true;
+music.loop = true;
+music.volume = 0.2;
+music.setAttribute("style", "display: none;");
+document.body.appendChild(music);
+
 
 // DISPLAY INITIAL VALUES //
 
