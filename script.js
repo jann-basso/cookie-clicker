@@ -1,15 +1,16 @@
 var counter = 0;
 const points = 10;
 var score = 0;
-var multiplier= 1;
-var multiplierprice = 100;
+var cookiebtn = document.getElementById("cookie-btn");
+var multiplier = 1;
+var multiplierprice = 300;
 var multiplierbtn = document.getElementById("multiplier-btn");
-var autoclicktimer = 30;
+var autoclicktimer = 10;
 var autoclickprice = 1000;
 var autoclickbtn = document.getElementById("autoclick-btn");
 var bonus = 1;
 var bonustimer = 30;
-var bonusprice = 1000;
+var bonusprice = 10000;
 var bonusbtn = document.getElementById("bonus-btn");
 
 
@@ -69,7 +70,18 @@ addScore = () => {
 buyButton = (buttonprice) => {
    score = score - buttonprice;
    document.getElementById("score-lbl").innerHTML = score  + " points";
-   buttonprice = buttonprice * 2;
+   switch (buttonprice) {
+      case multiplierprice :
+         buttonprice = buttonprice * 2;
+         break;
+      case autoclickprice :
+         buttonprice = buttonprice + 2000;
+         break;
+      case bonusprice :
+         buttonprice = buttonprice + 10000;
+         break;
+   }
+   //buttonprice = buttonprice * 2;
    ifMultiplier();
    ifAutoclick();
    ifBonus();
@@ -86,8 +98,8 @@ cookiebtn.addEventListener("click", () => {
 });
 
 
-document.getElementById("multiplier-btn").addEventListener("click", () => {
-   if( score >= multiplierprice)     
+multiplierbtn.addEventListener("click", () => {
+   if( score >= multiplierprice) {    
       multiplierprice = buyButton(multiplierprice);
       multiplier = multiplier + 1; 
       document.getElementById("mult-btn-times").innerHTML = "x " + multiplier;
@@ -95,28 +107,37 @@ document.getElementById("multiplier-btn").addEventListener("click", () => {
    }
 });
 
-document.getElementById("autoclick-btn").addEventListener("click", () => { 
+autoclickbtn.addEventListener("click", () => { 
    if( score >= autoclickprice){
       toggleActive("autoclick-btn");
       autoclickprice = buyButton(autoclickprice);
       document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
-      autoclicktimer= 30;
+      autoclicktimer= 10;
       const autoclickinterval = setInterval(count, 1000);
       function count(){
          if(autoclicktimer <= 0){
             toggleActive("autoclick-btn");
             clearInterval(autoclickinterval);
-         }  
+         }
+         var turbotimer = 1;  
+         const turboclickinterval = setInterval(turbo, 100);
+         function turbo(){
+            if(turbotimer >= 10){
+               clearInterval(turboclickinterval);               
+            }
+            addClick();                       
+            addScore(); 
+            turbotimer = turbotimer + 1; 
+         }
          document.getElementById("autoclick-btn-timer").innerHTML = autoclicktimer + " seconds";
          autoclicktimer = autoclicktimer-1; 
-         addClick();                       
-         addScore();                         
+                                
       }  
    }           
 });
 
 
-document.getElementById("bonus-btn").addEventListener("click", () => { 
+bonusbtn.addEventListener("click", () => { 
    if( score >= bonusprice){
       toggleActive("bonus-btn");
       bonusprice = buyButton(bonusprice);
