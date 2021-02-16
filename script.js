@@ -7,13 +7,17 @@ var cookiebtn = document.getElementById("cookie-btn");
 var multiplier = 1;
 var multiplierprice = 300;
 var multiplierbtn = document.getElementById("multiplier-btn");
+multiplierbtn.disabled = true;
 var autoclicktimer = 10;
 var autoclickprice = 1000;
 var autoclickbtn = document.getElementById("autoclick-btn");
+autoclickbtn.disabled = true;
+var autoclickintervalOn = false;
 var bonus = 1;
 var bonustimer = 30;
 var bonusprice = 10000;
 var bonusbtn = document.getElementById("bonus-btn");
+bonusbtn.disabled = true;
 
 // DISPLAY INITIAL VALUES //
 
@@ -26,8 +30,10 @@ document.getElementById("autoclick-btn-timer").innerHTML = autoclicktimer + " se
 document.getElementById("bonus-btn-price").innerHTML = bonusprice + " points";
 document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " seconds";
 
+
 // FUNCTIONS //
 
+// HIGHLIGHTS & ACTIVATES MULTIPLIER BUTTON WHEN AVAILABLE TO BUY //
 ifMultiplier = () => {
    if (score >= multiplierprice) {
       multiplierbtn.setAttribute("style", "border: solid red 2px;");
@@ -39,15 +45,19 @@ ifMultiplier = () => {
    }
 }
 
+// HIGHLIGHTS AUTOCLICK BUTTON WHEN AVAILABLE TO BUY //
 ifAutoclick = () => {
-   if (score >= autoclickprice && !autoclickbtn.disabled) {
+   if (score >= autoclickprice && !autoclickintervalOn) {
       autoclickbtn.setAttribute("style", "border: solid red 2px;");
+      autoclickbtn.disabled = false;
    }
    else {
       autoclickbtn.setAttribute("style", "border: none;");
+      autoclickbtn.disabled = true;
    }
 }
 
+// HIGHLIGHTS BONUS BUTTON WHEN AVAILABLE TO BUY //
 ifBonus = () => {
    if (score >= bonusprice && !bonusbtn.disabled){
       bonusbtn.setAttribute("style", "border: solid red 2px;");
@@ -57,11 +67,13 @@ ifBonus = () => {
    }
 }
 
+// ADDS CLICK TO COUNT & UPDATES COUNTER DISPLAY //
 addClick = () => {
    counter = counter + 1;
    document.getElementById("counter-lbl").innerHTML = counter;
 }
 
+// ADDS POINTS TO SCORE + UPDATES SCORE DISPLAY & VERIFIES PURCHASES OPTIONS//
 addScore = () => {
    score = score + (points * multiplier) * bonus;
    document.getElementById("score-lbl").innerHTML = score  + " points";   
@@ -70,6 +82,7 @@ addScore = () => {
    ifBonus();
 }
 
+// UPDATES SCORE & BUTTON PRICES //
 buyButton = (buttonprice) => {
    score = score - buttonprice;
    document.getElementById("score-lbl").innerHTML = score  + " points";
@@ -90,18 +103,15 @@ buyButton = (buttonprice) => {
    return buttonprice;
 }
 
-toggleActive = (button) => {
-   document.getElementById(button).disabled = !document.getElementById(button).disabled;         
-}
-
 // CLICK LISTENERS //
 
+// HANDLES COOKIE CLICKS //
 cookiebtn.addEventListener("click", () => {   
    addClick();
    addScore();   
 });
 
-
+// HANDLES MULTIPLIER BUTTONS CLICKS //
 multiplierbtn.addEventListener("click", () => {
    if (score >= multiplierprice) {    
       multiplierprice = buyButton(multiplierprice);
@@ -111,21 +121,22 @@ multiplierbtn.addEventListener("click", () => {
    }
 });
 
+// HANDLES AUTOCLICK BUTTON (10 CLICKS/SECOND FOR 10 SECONDS) & COUNTDOWN INTERVAL //
 autoclickbtn.addEventListener("click", () => { 
    if (score >= autoclickprice) {
-      toggleActive("autoclick-btn");
+      autoclickintervalOn = true;
       autoclickprice = buyButton(autoclickprice);
       document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
       autoclicktimer= 10;
       const autoclickinterval = setInterval(count, 1000);
-      function count() {
-         if (autoclicktimer <= 0) {
-            toggleActive("autoclick-btn");
+      function count() {   // COUNTS 10 SECONDS //
+         if (autoclicktimer <= 0) {            
+            autoclickintervalOn = false;
             clearInterval(autoclickinterval);
          }
          var turbotimer = 1;  
          const turboclickinterval = setInterval(turbo, 100);
-         function turbo() {
+         function turbo() {   // COUNTS 10 CLICKS //
             if (turbotimer >= 10) {
                clearInterval(turboclickinterval);               
             }
@@ -139,6 +150,7 @@ autoclickbtn.addEventListener("click", () => {
    }           
 });
 
+// HANDLES BONUS BUTTON & COUNTDOWN INTERVAL //
 bonusbtn.addEventListener("click", () => { 
    if (score >= bonusprice) {
       toggleActive("bonus-btn");
@@ -147,7 +159,7 @@ bonusbtn.addEventListener("click", () => {
       bonus = 2;
       bonustimer= 30;
       const bonusinterval = setInterval(count, 1000);
-      function count(){
+      function count(){    // COUNTS 30 SECONDS //
          if (bonustimer <= 0) {
             bonus = 1;
             toggleActive("bonus-btn");
