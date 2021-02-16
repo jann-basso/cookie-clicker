@@ -111,6 +111,22 @@ h1 {
     z-index: 1;
 }
 
+map {
+    cursor: pointer;
+}
+
+#floating-cookies {
+    visibility: visible;
+    position: relative;
+    height: 65%;
+}
+
+
+.float-cookie {
+    visibility: hidden;
+}
+
+
 
 /* --------------------- BUTTONS --------------------- */
 #sec-buttons { 
@@ -159,10 +175,6 @@ h1 {
 
 #bonus {
     grid-area: bonus;
-}
-
-#floating-cookies {
-    visibility: hidden;
 }
 
 
@@ -216,11 +228,8 @@ a:hover {
    }
 
    #counter, #score {
-        grid-template-columns: 2fr;
-       
+        grid-template-columns: 2fr;   
    }
-
-   /* cookie */
 
 
    /* buttons */
@@ -261,6 +270,7 @@ a:hover {
     }
     
     .float-cookie {
+        visibility: visible;
         position: absolute;
         width: 5%;
         animation: fall 5s linear infinite;
