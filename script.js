@@ -3,7 +3,7 @@
 var counter = 0;
 const points = 10;
 var score = 0;
-var cookiebtn = document.getElementById("cookie-btn");
+var cookiebtn = document.getElementById("map");
 var multiplier = 1;
 var multiplierprice = 300;
 var multiplierbtn = document.getElementById("multiplier-btn");
@@ -19,6 +19,22 @@ var bonusOn = false;
 var bonusprice = 5000;
 var bonusbtn = document.getElementById("bonus-btn");
 bonusbtn.disabled = true;
+var cookiesound = document.createElement("audio");
+cookiesound.setAttribute("src", "mp3/crunch.mp3");
+cookiesound.setAttribute("preload", "auto");
+cookiesound.setAttribute("controls", "none");
+cookiesound.setAttribute("style", "display: none;");
+document.body.appendChild(cookiesound);
+var music = document.createElement("audio");
+music.setAttribute("src", "mp3/music.mp3");
+music.setAttribute("preload", "auto");
+music.setAttribute("controls", "none");
+music.autoplay = true;
+music.loop = true;
+music.volume = 0.2;
+music.setAttribute("style", "display: none;");
+document.body.appendChild(music);
+
 
 // DISPLAY INITIAL VALUES //
 
@@ -74,6 +90,8 @@ ifBonus = () => {
 addClick = () => {
    counter = counter + 1;
    document.getElementById("counter-lbl").innerHTML = counter;
+   cookiesound.currentTime = 0;
+   cookiesound.play();
 }
 
 // ADDS POINTS TO SCORE + UPDATES SCORE DISPLAY + VERIFIES PURCHASES OPTIONS//
@@ -173,3 +191,13 @@ bonusbtn.addEventListener("click", () => {
       }  
    }           
 });
+
+document.getElementById("map").onmouseover = function() {
+    let cookie = document.getElementById("cookie-img")
+    cookie.setAttribute("src", "img/cookie-cracked.png")
+}
+
+document.getElementById("map").onmouseout = function() {
+   let cookie = document.getElementById("cookie-img")
+   cookie.setAttribute("src", "img/cookie-complete.png")
+}
