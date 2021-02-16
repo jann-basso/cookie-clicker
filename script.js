@@ -27,14 +27,16 @@ document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " seconds";
 ifMultiplier = () => {
    if (score >= multiplierprice){
       multiplierbtn.setAttribute("style", "border: solid red 2px;");
+      multiplierbtn.disabled = false;
    }
    else{
       multiplierbtn.setAttribute("style", "border: none;");
+      multiplierbtn.disabled = true;
    }
 }
 
 ifAutoclick = () => {
-   if (score >= autoclickprice && !document.getElementById("autoclick-btn").disabled){
+   if (score >= autoclickprice && !autoclickbtn.disabled){
       autoclickbtn.setAttribute("style", "border: solid red 2px;");
    }
    else{
@@ -43,7 +45,7 @@ ifAutoclick = () => {
 }
 
 ifBonus = () => {
-   if (score >= bonusprice && !document.getElementById("bonus-btn").disabled){
+   if (score >= bonusprice && !bonusbtn.disabled){
       bonusbtn.setAttribute("style", "border: solid red 2px;");
    }
    else{
@@ -74,40 +76,40 @@ buyButton = (buttonprice) => {
    return buttonprice;
 }
 
-document.getElementById("cookie-btn").addEventListener("click", () => {   
+toggleActive = (button) => {
+   document.getElementById(button).disabled = !document.getElementById(button).disabled;         
+}
+
+cookiebtn.addEventListener("click", () => {   
    addClick();
    addScore();   
 });
 
 
 document.getElementById("multiplier-btn").addEventListener("click", () => {
-   if( score >= multiplierprice){
-        multiplierprice = buyButton(multiplierprice);
-        multiplier = multiplier + 1; 
-        document.getElementById("mult-btn-times").innerHTML = "x " + multiplier;
-        document.getElementById("mult-btn-price").innerHTML = multiplierprice + " points";      
+   if( score >= multiplierprice)     
+      multiplierprice = buyButton(multiplierprice);
+      multiplier = multiplier + 1; 
+      document.getElementById("mult-btn-times").innerHTML = "x " + multiplier;
+      document.getElementById("mult-btn-price").innerHTML = multiplierprice + " points";          
    }
 });
 
 document.getElementById("autoclick-btn").addEventListener("click", () => { 
    if( score >= autoclickprice){
-      document.getElementById("autoclick-btn").disabled = true;
+      toggleActive("autoclick-btn");
       autoclickprice = buyButton(autoclickprice);
       document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
       autoclicktimer= 30;
       const autoclickinterval = setInterval(count, 1000);
       function count(){
          if(autoclicktimer <= 0){
-            document.getElementById("autoclick-btn").disabled = false;
+            toggleActive("autoclick-btn");
             clearInterval(autoclickinterval);
          }  
          document.getElementById("autoclick-btn-timer").innerHTML = autoclicktimer + " seconds";
          autoclicktimer = autoclicktimer-1; 
-         addClick();
-         addClick();         
-         addClick();
-         addScore();               
-         addScore();               
+         addClick();                       
          addScore();                         
       }  
    }           
@@ -116,7 +118,7 @@ document.getElementById("autoclick-btn").addEventListener("click", () => {
 
 document.getElementById("bonus-btn").addEventListener("click", () => { 
    if( score >= bonusprice){
-      document.getElementById("bonus-btn").disabled = true;
+      toggleActive("bonus-btn");
       bonusprice = buyButton(bonusprice);
       document.getElementById("bonus-btn-price").innerHTML = bonusprice + " points";
       bonus = 2;
@@ -125,7 +127,7 @@ document.getElementById("bonus-btn").addEventListener("click", () => {
       function count(){
          if(bonustimer <= 0){
             bonus = 1;
-            document.getElementById("bonus-btn").disabled = false;
+            toggleActive("bonus-btn");
             clearInterval(bonusinterval);
          }  
          document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " seconds";
