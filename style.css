@@ -112,14 +112,9 @@ h1 {
     z-index: 1;
 }
 
-/*
-#cookie-img:hover {
-    content: url("img/cookie-cracked.png") 
+area {
+    outline: none;
 }
-*/
-
-
-
 
 
 /* --------------------- BUTTONS --------------------- */
