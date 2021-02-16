@@ -84,11 +84,15 @@ document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " seconds";
 // HIGHLIGHTS & ACTIVATES MULTIPLIER BUTTON WHEN AVAILABLE TO BUY //
 ifMultiplier = () => {
    if (score >= multiplierprice) {
-      multiplierbtn.setAttribute("style", "border: solid red 2px;");
+      multiplierbtn.setAttribute("style", "border: solid red 2px; background-color: rgb(2, 34, 61)");
+      document.getElementById("mult-btn-title").setAttribute("style", "color: white;");
+      document.getElementById("mult-btn-price").setAttribute("style", "color: #d6893f;");
       multiplierbtn.disabled = false;
    }
    else {
-      multiplierbtn.setAttribute("style", "border: none;");
+      multiplierbtn.removeAttribute("style");
+      document.getElementById("mult-btn-title").removeAttribute("style");
+      document.getElementById("mult-btn-price").removeAttribute("style");
       multiplierbtn.disabled = true;
    }
 }
@@ -96,11 +100,15 @@ ifMultiplier = () => {
 // HIGHLIGHTS & ACTIVATES AUTOCLICK BUTTON WHEN AVAILABLE TO BUY //
 ifAutoclick = () => {
    if (score >= autoclickprice && !autoclickOn) {
-      autoclickbtn.setAttribute("style", "border: solid red 2px;");
+      autoclickbtn.setAttribute("style", "border: solid red 2px; background-color: rgb(2, 34, 61)");
+      document.getElementById("autoclick-btn-title").setAttribute("style", "color: white;");
+      document.getElementById("autoclick-btn-price").setAttribute("style", "color: #d6893f;");
       autoclickbtn.disabled = false;
    }
    else {
       autoclickbtn.setAttribute("style", "border: none;");
+      document.getElementById("autoclick-btn-title").removeAttribute("style");
+      document.getElementById("autoclick-btn-price").removeAttribute("style");
       autoclickbtn.disabled = true;
    }
 }
@@ -108,11 +116,15 @@ ifAutoclick = () => {
 // HIGHLIGHTS & ACTIVATES BONUS BUTTON WHEN AVAILABLE TO BUY //
 ifBonus = () => {
    if (score >= bonusprice && !bonusOn) {
-      bonusbtn.setAttribute("style", "border: solid red 2px;");
+      bonusbtn.setAttribute("style", "border: solid red 2px; background-color: rgb(2, 34, 61)");
+      document.getElementById("bonus-btn-title").setAttribute("style", "color: white;");
+      document.getElementById("bonus-btn-price").setAttribute("style", "color: #d6893f;");
       bonusbtn.disabled = false;
    }
    else {
       bonusbtn.setAttribute("style", "border: none;");
+      document.getElementById("bonus-btn-title").removeAttribute("style");
+      document.getElementById("bonus-btn-price").removeAttribute("style");
       bonusbtn.disabled = true;
    }
 }
