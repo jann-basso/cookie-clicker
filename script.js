@@ -1,5 +1,4 @@
 // INITIAL VARIABLES //
-
 var counter = 0;
 const points = 10;
 var score = 0;
@@ -68,7 +67,6 @@ bonussound.volume = 0.5;
 document.body.appendChild(bonussound);
 
 // DISPLAY INITIAL VALUES //
-
 document.getElementById("counter-lbl").innerHTML = counter;
 document.getElementById("score-lbl").innerHTML = score + " points";
 document.getElementById("mult-btn-times").innerHTML = "x " + multiplier;
