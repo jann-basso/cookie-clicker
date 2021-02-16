@@ -19,6 +19,12 @@ var bonusOn = false;
 var bonusprice = 5000;
 var bonusbtn = document.getElementById("bonus-btn");
 bonusbtn.disabled = true;
+var cookiesound = document.createElement("audio");
+cookiesound.setAttribute("src", "mp3/crunch.mp3");
+cookiesound.setAttribute("preload", "auto");
+cookiesound.setAttribute("controls", "none");
+cookiesound.setAttribute("style", "display: none;");
+document.body.appendChild(cookiesound);
 
 // DISPLAY INITIAL VALUES //
 
@@ -74,6 +80,8 @@ ifBonus = () => {
 addClick = () => {
    counter = counter + 1;
    document.getElementById("counter-lbl").innerHTML = counter;
+   cookiesound.currentTime = 0;
+   cookiesound.play();
 }
 
 // ADDS POINTS TO SCORE + UPDATES SCORE DISPLAY + VERIFIES PURCHASES OPTIONS//
