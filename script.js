@@ -193,8 +193,8 @@ bonusbtn.addEventListener("click", () => {
 });
 
 document.getElementById("map").onmouseover = function() {
-   let cookie = document.getElementById("cookie-img")
-   cookie.setAttribute("src", "img/cookie-cracked.png")
+    let cookie = document.getElementById("cookie-img")
+    cookie.setAttribute("src", "img/cookie-cracked.png")
 }
 
 document.getElementById("map").onmouseout = function() {
