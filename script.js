@@ -1,3 +1,5 @@
+// INITIAL VARIABLES //
+
 var counter = 0;
 const points = 10;
 var score = 0;
@@ -13,8 +15,7 @@ var bonustimer = 30;
 var bonusprice = 10000;
 var bonusbtn = document.getElementById("bonus-btn");
 
-
-
+// DISPLAY INITIAL VALUES //
 
 document.getElementById("counter-lbl").innerHTML = counter;
 document.getElementById("score-lbl").innerHTML = score + " points";
@@ -25,22 +26,24 @@ document.getElementById("autoclick-btn-timer").innerHTML = autoclicktimer + " se
 document.getElementById("bonus-btn-price").innerHTML = bonusprice + " points";
 document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " seconds";
 
+// FUNCTIONS //
+
 ifMultiplier = () => {
-   if (score >= multiplierprice){
+   if (score >= multiplierprice) {
       multiplierbtn.setAttribute("style", "border: solid red 2px;");
       multiplierbtn.disabled = false;
    }
-   else{
+   else {
       multiplierbtn.setAttribute("style", "border: none;");
       multiplierbtn.disabled = true;
    }
 }
 
 ifAutoclick = () => {
-   if (score >= autoclickprice && !autoclickbtn.disabled){
+   if (score >= autoclickprice && !autoclickbtn.disabled) {
       autoclickbtn.setAttribute("style", "border: solid red 2px;");
    }
-   else{
+   else {
       autoclickbtn.setAttribute("style", "border: none;");
    }
 }
@@ -81,7 +84,6 @@ buyButton = (buttonprice) => {
          buttonprice = buttonprice + 10000;
          break;
    }
-   //buttonprice = buttonprice * 2;
    ifMultiplier();
    ifAutoclick();
    ifBonus();
@@ -92,6 +94,8 @@ toggleActive = (button) => {
    document.getElementById(button).disabled = !document.getElementById(button).disabled;         
 }
 
+// CLICK LISTENERS //
+
 cookiebtn.addEventListener("click", () => {   
    addClick();
    addScore();   
@@ -99,7 +103,7 @@ cookiebtn.addEventListener("click", () => {
 
 
 multiplierbtn.addEventListener("click", () => {
-   if( score >= multiplierprice) {    
+   if (score >= multiplierprice) {    
       multiplierprice = buyButton(multiplierprice);
       multiplier = multiplier + 1; 
       document.getElementById("mult-btn-times").innerHTML = "x " + multiplier;
@@ -108,21 +112,21 @@ multiplierbtn.addEventListener("click", () => {
 });
 
 autoclickbtn.addEventListener("click", () => { 
-   if( score >= autoclickprice){
+   if (score >= autoclickprice) {
       toggleActive("autoclick-btn");
       autoclickprice = buyButton(autoclickprice);
       document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
       autoclicktimer= 10;
       const autoclickinterval = setInterval(count, 1000);
-      function count(){
-         if(autoclicktimer <= 0){
+      function count() {
+         if (autoclicktimer <= 0) {
             toggleActive("autoclick-btn");
             clearInterval(autoclickinterval);
          }
          var turbotimer = 1;  
          const turboclickinterval = setInterval(turbo, 100);
-         function turbo(){
-            if(turbotimer >= 10){
+         function turbo() {
+            if (turbotimer >= 10) {
                clearInterval(turboclickinterval);               
             }
             addClick();                       
@@ -130,15 +134,13 @@ autoclickbtn.addEventListener("click", () => {
             turbotimer = turbotimer + 1; 
          }
          document.getElementById("autoclick-btn-timer").innerHTML = autoclicktimer + " seconds";
-         autoclicktimer = autoclicktimer-1; 
-                                
+         autoclicktimer = autoclicktimer-1;                 
       }  
    }           
 });
 
-
 bonusbtn.addEventListener("click", () => { 
-   if( score >= bonusprice){
+   if (score >= bonusprice) {
       toggleActive("bonus-btn");
       bonusprice = buyButton(bonusprice);
       document.getElementById("bonus-btn-price").innerHTML = bonusprice + " points";
@@ -146,7 +148,7 @@ bonusbtn.addEventListener("click", () => {
       bonustimer= 30;
       const bonusinterval = setInterval(count, 1000);
       function count(){
-         if(bonustimer <= 0){
+         if (bonustimer <= 0) {
             bonus = 1;
             toggleActive("bonus-btn");
             clearInterval(bonusinterval);
