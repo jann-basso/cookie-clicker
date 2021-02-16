@@ -44,7 +44,6 @@ article, header {
 }
 
 button {
-    /*cursor: pointer;*/
     outline: none;
 }
 
@@ -111,15 +110,6 @@ h1 {
     margin: 10px;
     z-index: 1;
 }
-
-/*
-#cookie-img:hover {
-    content: url("img/cookie-cracked.png") 
-}
-*/
-
-
-
 
 
 /* --------------------- BUTTONS --------------------- */
