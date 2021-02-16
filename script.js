@@ -45,7 +45,27 @@ buysound.setAttribute("controls", "none");
 buysound.setAttribute("style", "display: none;");
 buysound.volume = 0.5;
 document.body.appendChild(buysound);
-
+var multipliersound = document.createElement("audio");
+multipliersound.setAttribute("src", "mp3/multiplier.mp3");
+multipliersound.setAttribute("preload", "auto");
+multipliersound.setAttribute("controls", "none");
+multipliersound.setAttribute("style", "display: none;");
+multipliersound.volume = 0.5;
+document.body.appendChild(multipliersound);
+var autoclicksound = document.createElement("audio");
+autoclicksound.setAttribute("src", "mp3/autoclick.mp3");
+autoclicksound.setAttribute("preload", "auto");
+autoclicksound.setAttribute("controls", "none");
+autoclicksound.setAttribute("style", "display: none;");
+autoclicksound.volume = 0.5;
+document.body.appendChild(autoclicksound);
+var bonussound = document.createElement("audio");
+bonussound.setAttribute("src", "mp3/bonus.mp3");
+bonussound.setAttribute("preload", "auto");
+bonussound.setAttribute("controls", "none");
+bonussound.setAttribute("style", "display: none;");
+bonussound.volume = 0.5;
+document.body.appendChild(bonussound);
 
 // DISPLAY INITIAL VALUES //
 
