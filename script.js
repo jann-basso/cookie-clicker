@@ -1,5 +1,4 @@
 // INITIAL VARIABLES //
-
 var counter = 0;
 const points = 10;
 var score = 0;
@@ -19,12 +18,8 @@ var bonusOn = false;
 var bonusprice = 5000;
 var bonusbtn = document.getElementById("bonus-btn");
 bonusbtn.disabled = true;
-var cookiesound = document.createElement("audio");
-cookiesound.setAttribute("src", "mp3/crunch.mp3");
-cookiesound.setAttribute("preload", "auto");
-cookiesound.setAttribute("controls", "none");
-cookiesound.setAttribute("style", "display: none;");
-document.body.appendChild(cookiesound);
+
+// INSERT BACKGROUND MUSIC //
 var music = document.createElement("audio");
 music.setAttribute("src", "mp3/music.mp3");
 music.setAttribute("preload", "auto");
@@ -35,9 +30,43 @@ music.volume = 0.2;
 music.setAttribute("style", "display: none;");
 document.body.appendChild(music);
 
+// CREATE SOUND FX //
+var cookiesound = document.createElement("audio");
+cookiesound.setAttribute("src", "mp3/crunch.mp3");
+cookiesound.setAttribute("preload", "auto");
+cookiesound.setAttribute("controls", "none");
+cookiesound.setAttribute("style", "display: none;");
+document.body.appendChild(cookiesound);
+var buysound = document.createElement("audio");
+buysound.setAttribute("src", "mp3/buy.mp3");
+buysound.setAttribute("preload", "auto");
+buysound.setAttribute("controls", "none");
+buysound.setAttribute("style", "display: none;");
+buysound.volume = 0.5;
+document.body.appendChild(buysound);
+var multipliersound = document.createElement("audio");
+multipliersound.setAttribute("src", "mp3/multiplier.mp3");
+multipliersound.setAttribute("preload", "auto");
+multipliersound.setAttribute("controls", "none");
+multipliersound.setAttribute("style", "display: none;");
+multipliersound.volume = 0.5;
+document.body.appendChild(multipliersound);
+var autoclicksound = document.createElement("audio");
+autoclicksound.setAttribute("src", "mp3/autoclick.mp3");
+autoclicksound.setAttribute("preload", "auto");
+autoclicksound.setAttribute("controls", "none");
+autoclicksound.setAttribute("style", "display: none;");
+autoclicksound.volume = 0.5;
+document.body.appendChild(autoclicksound);
+var bonussound = document.createElement("audio");
+bonussound.setAttribute("src", "mp3/bonus.mp3");
+bonussound.setAttribute("preload", "auto");
+bonussound.setAttribute("controls", "none");
+bonussound.setAttribute("style", "display: none;");
+bonussound.volume = 0.5;
+document.body.appendChild(bonussound);
 
 // DISPLAY INITIAL VALUES //
-
 document.getElementById("counter-lbl").innerHTML = counter;
 document.getElementById("score-lbl").innerHTML = score + " points";
 document.getElementById("mult-btn-times").innerHTML = "x " + multiplier;
@@ -53,11 +82,15 @@ document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " seconds";
 // HIGHLIGHTS & ACTIVATES MULTIPLIER BUTTON WHEN AVAILABLE TO BUY //
 ifMultiplier = () => {
    if (score >= multiplierprice) {
-      multiplierbtn.setAttribute("style", "border: solid red 2px;");
+      multiplierbtn.setAttribute("style", "border: solid red 2px; background-color: rgb(2, 34, 61)");
+      document.getElementById("mult-btn-title").setAttribute("style", "color: white;");
+      document.getElementById("mult-btn-price").setAttribute("style", "color: #d6893f;");
       multiplierbtn.disabled = false;
    }
    else {
-      multiplierbtn.setAttribute("style", "border: none;");
+      multiplierbtn.removeAttribute("style");
+      document.getElementById("mult-btn-title").removeAttribute("style");
+      document.getElementById("mult-btn-price").removeAttribute("style");
       multiplierbtn.disabled = true;
    }
 }
@@ -65,11 +98,15 @@ ifMultiplier = () => {
 // HIGHLIGHTS & ACTIVATES AUTOCLICK BUTTON WHEN AVAILABLE TO BUY //
 ifAutoclick = () => {
    if (score >= autoclickprice && !autoclickOn) {
-      autoclickbtn.setAttribute("style", "border: solid red 2px;");
+      autoclickbtn.setAttribute("style", "border: solid red 2px; background-color: rgb(2, 34, 61)");
+      document.getElementById("autoclick-btn-title").setAttribute("style", "color: white;");
+      document.getElementById("autoclick-btn-price").setAttribute("style", "color: #d6893f;");
       autoclickbtn.disabled = false;
    }
    else {
       autoclickbtn.setAttribute("style", "border: none;");
+      document.getElementById("autoclick-btn-title").removeAttribute("style");
+      document.getElementById("autoclick-btn-price").removeAttribute("style");
       autoclickbtn.disabled = true;
    }
 }
@@ -77,11 +114,15 @@ ifAutoclick = () => {
 // HIGHLIGHTS & ACTIVATES BONUS BUTTON WHEN AVAILABLE TO BUY //
 ifBonus = () => {
    if (score >= bonusprice && !bonusOn) {
-      bonusbtn.setAttribute("style", "border: solid red 2px;");
+      bonusbtn.setAttribute("style", "border: solid red 2px; background-color: rgb(2, 34, 61)");
+      document.getElementById("bonus-btn-title").setAttribute("style", "color: white;");
+      document.getElementById("bonus-btn-price").setAttribute("style", "color: #d6893f;");
       bonusbtn.disabled = false;
    }
    else {
       bonusbtn.setAttribute("style", "border: none;");
+      document.getElementById("bonus-btn-title").removeAttribute("style");
+      document.getElementById("bonus-btn-price").removeAttribute("style");
       bonusbtn.disabled = true;
    }
 }
@@ -105,17 +146,25 @@ addScore = () => {
 
 // UPDATES SCORE & BUTTON PRICES + VERIFIES PURCHASES OPTIONS //
 buyButton = (buttonprice) => {
+   buysound.currentTime = 0;
+   buysound.play();
    score = score - buttonprice;
    document.getElementById("score-lbl").innerHTML = score  + " points";
    switch (buttonprice) {
       case multiplierprice :
          buttonprice = buttonprice * 2;
+         multipliersound.currentTime = 0;
+         multipliersound.play();
          break;
       case autoclickprice :
          buttonprice = buttonprice + 2000;
+         autoclicksound.currentTime = 0;
+         autoclicksound.play();
          break;
       case bonusprice :
          buttonprice = buttonprice + 10000;
+         bonussound.currentTime = 0;
+         bonussound.play();
          break;
    }
    ifMultiplier();
