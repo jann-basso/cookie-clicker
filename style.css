@@ -111,7 +111,6 @@ h1 {
     z-index: 1;
 }
 
-<<<<<<< HEAD
 map {
     cursor: pointer;
 }
@@ -127,11 +126,6 @@ map {
     visibility: hidden;
 }
 
-=======
-area {
-    outline: none;
-}
->>>>>>> 78066c9593eabb1107d98fb81cf9e8025e536dc5
 
 
 /* --------------------- BUTTONS --------------------- */
