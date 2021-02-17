@@ -84,10 +84,11 @@ ifMultiplier = () => {
    if (score >= multiplierprice) {
       multiplierbtn.setAttribute("style", "background-color: rgb(2, 34, 61)");
       document.getElementById("mult-btn-title").setAttribute("style", "color: white;");
-      document.getElementById("mult-btn-price").setAttribute("style", "color: #d6893f;");
+      document.getElementById("mult-btn-price").setAttribute("style", "color:rgb(101, 105, 109);");
       multiplierbtn.disabled = false;
    }
    else {
+      multiplierbtn.removeAttribute("style");
       document.getElementById("mult-btn-title").removeAttribute("style");
       document.getElementById("mult-btn-price").removeAttribute("style");
       multiplierbtn.disabled = true;
@@ -99,10 +100,11 @@ ifAutoclick = () => {
    if (score >= autoclickprice && !autoclickOn) {
       autoclickbtn.setAttribute("style", "background-color: rgb(2, 34, 61)");
       document.getElementById("autoclick-btn-title").setAttribute("style", "color: white;");
-      document.getElementById("autoclick-btn-price").setAttribute("style", "color: #d6893f;");
+      document.getElementById("autoclick-btn-price").setAttribute("style", "color:rgb(101, 105, 109);");
       autoclickbtn.disabled = false;
    }
    else {
+      autoclickbtn.removeAttribute("style");
       document.getElementById("autoclick-btn-title").removeAttribute("style");
       document.getElementById("autoclick-btn-price").removeAttribute("style");
       autoclickbtn.disabled = true;
@@ -114,10 +116,11 @@ ifBonus = () => {
    if (score >= bonusprice && !bonusOn) {
       bonusbtn.setAttribute("style", "background-color: rgb(2, 34, 61)");
       document.getElementById("bonus-btn-title").setAttribute("style", "color: white;");
-      document.getElementById("bonus-btn-price").setAttribute("style", "color: #d6893f;");
+      document.getElementById("bonus-btn-price").setAttribute("style", "color:rgb(101, 105, 109);");
       bonusbtn.disabled = false;
    }
    else {     
+      bonusbtn.removeAttribute("style");
       document.getElementById("bonus-btn-title").removeAttribute("style");
       document.getElementById("bonus-btn-price").removeAttribute("style");
       bonusbtn.disabled = true;
