@@ -24,12 +24,10 @@ var music = document.createElement("audio");
 music.setAttribute("src", "mp3/music.mp3");
 music.setAttribute("preload", "auto");
 music.setAttribute("controls", "none");
-music.autoplay = true;
 music.loop = true;
 music.volume = 0.2;
 music.setAttribute("style", "display: none;");
 document.body.appendChild(music);
-music.play();
 
 // CREATE SOUND FX //
 var cookiesound = document.createElement("audio");
@@ -164,6 +162,7 @@ addClick = () => {
    document.getElementById("counter-lbl").innerHTML = counter;
    cookiesound.currentTime = 0;
    cookiesound.play();
+   music.play();
    let arrayPlusone = [plusone1, plusone2, plusone3]
    let randomPlusone = Math.floor(Math.random()*arrayPlusone.length)
    arrayPlusone[randomPlusone].animate([ // ANIMATE +X // 
