@@ -278,10 +278,10 @@ bonusbtn.addEventListener("click", () => {
 
 document.getElementById("map").onmouseover = function() {
     let cookie = document.getElementById("cookie-img")
-    cookie.setAttribute("src", "img/cookie-cracked.png")
+    cookie.setAttribute("src", "img/cookie-cracked.webp")
 }
 
 document.getElementById("map").onmouseout = function() {
    let cookie = document.getElementById("cookie-img")
-   cookie.setAttribute("src", "img/cookie-complete.png")
+   cookie.setAttribute("src", "img/cookie-complete.webp")
 }

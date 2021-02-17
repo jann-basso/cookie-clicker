@@ -93,11 +93,6 @@ h1 {
 
 
 /* --------------------- COOKIE --------------------- */
-#sec-cookie {
-    height: 100%;
-    display: grid;
-    grid-template-rows: auto; 
-}
 
 #cookie, #cookie-btn {
     border: none;
