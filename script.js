@@ -88,7 +88,6 @@ ifMultiplier = () => {
       multiplierbtn.disabled = false;
    }
    else {
-      multiplierbtn.removeAttribute("style");
       document.getElementById("mult-btn-title").removeAttribute("style");
       document.getElementById("mult-btn-price").removeAttribute("style");
       multiplierbtn.disabled = true;
@@ -104,7 +103,6 @@ ifAutoclick = () => {
       autoclickbtn.disabled = false;
    }
    else {
-      autoclickbtn.setAttribute("style", "border: none;");
       document.getElementById("autoclick-btn-title").removeAttribute("style");
       document.getElementById("autoclick-btn-price").removeAttribute("style");
       autoclickbtn.disabled = true;
@@ -119,8 +117,7 @@ ifBonus = () => {
       document.getElementById("bonus-btn-price").setAttribute("style", "color: #d6893f;");
       bonusbtn.disabled = false;
    }
-   else {
-      bonusbtn.setAttribute("style", "border: none;");
+   else {     
       document.getElementById("bonus-btn-title").removeAttribute("style");
       document.getElementById("bonus-btn-price").removeAttribute("style");
       bonusbtn.disabled = true;
