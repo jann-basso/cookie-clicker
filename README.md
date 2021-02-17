@@ -16,6 +16,18 @@
 ## UX Prototype
 ![mockup](/img/mockup.jpeg)
 
+## Evaluation criterias
+
+| Criteria       | Indicator                                                    | Yes/No |
+| -------------- | ------------------------------------------------------------ | ------ |
+| 1. Is complete | The student has realized all must-have features.             |  yes   |
+|                | There is a published GitHub page available.                  |  yes   |
+|                | The readme is complete                                       |  yes   |
+| 2. Is Correct  | The HTML and CSS pass the W3C Validation tool.               |        |
+|                | The lighthouse test scores 90 at least on Performance, Best Practices, Accessibility and SEO. |        |
+|                | The indentation is perfect                                   |   yes  |
+
+
 
 ## The project (by BeCode)
 * Repository: ```Javascript```
