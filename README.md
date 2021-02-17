@@ -23,8 +23,8 @@
 | 1. Is complete | The student has realized all must-have features.             |  yes   |
 |                | There is a published GitHub page available.                  |  yes   |
 |                | The readme is complete                                       |  yes   |
-| 2. Is Correct  | The HTML and CSS pass the W3C Validation tool.               |        |
-|                | The lighthouse test scores 90 at least on Performance, Best Practices, Accessibility and SEO. |        |
+| 2. Is Correct  | The HTML and CSS pass the W3C Validation tool.               |  yes   |
+|                | The lighthouse test scores 90 at least on Performance, Best Practices, Accessibility and SEO. |   yes  |
 |                | The indentation is perfect                                   |   yes  |
 
 
