@@ -4,18 +4,18 @@ const points = 10;
 var score = 0;
 var cookiebtn = document.getElementById("map");
 var multiplier = 1;
-var multiplierprice = 300;
+var multiplierprice = 250;
 var multiplierbtn = document.getElementById("multiplier-btn");
 multiplierbtn.disabled = true;
-var autoclicktimer = 10;
-var autoclickOn = false;
-var autoclickprice = 1000;
+var autoclick = 0;
+var autoclickprice = 500;
+var autoclickInterval;
 var autoclickbtn = document.getElementById("autoclick-btn");
 autoclickbtn.disabled = true;
 var bonus = 1;
 var bonustimer = 30;
 var bonusOn = false;
-var bonusprice = 5000;
+var bonusprice = 1000;
 var bonusbtn = document.getElementById("bonus-btn");
 bonusbtn.disabled = true;
 
@@ -63,7 +63,7 @@ bonussound.setAttribute("src", "mp3/bonus.mp3");
 bonussound.setAttribute("preload", "auto");
 bonussound.setAttribute("controls", "none");
 bonussound.setAttribute("style", "display: none;");
-bonussound.volume = 0.5;
+bonussound.volume = 0.3;
 document.body.appendChild(bonussound);
 
 // DISPLAY INITIAL VALUES //
@@ -72,7 +72,7 @@ document.getElementById("score-lbl").innerHTML = score + " points";
 document.getElementById("mult-btn-times").innerHTML = "x " + multiplier;
 document.getElementById("mult-btn-price").innerHTML = multiplierprice + " points";
 document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
-document.getElementById("autoclick-btn-timer").innerHTML = autoclicktimer + " seconds";
+document.getElementById("autoclick-btn-timer").innerHTML = autoclick + " seconds";
 document.getElementById("bonus-btn-price").innerHTML = bonusprice + " points";
 document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " seconds";
 
@@ -82,9 +82,9 @@ document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " seconds";
 // HIGHLIGHTS & ACTIVATES MULTIPLIER BUTTON WHEN AVAILABLE TO BUY //
 ifMultiplier = () => {
    if (score >= multiplierprice) {
-      multiplierbtn.setAttribute("style", "border: solid red 2px; background-color: rgb(2, 34, 61)");
+      multiplierbtn.setAttribute("style", "background-color: rgb(2, 34, 61)");
       document.getElementById("mult-btn-title").setAttribute("style", "color: white;");
-      document.getElementById("mult-btn-price").setAttribute("style", "color: #d6893f;");
+      document.getElementById("mult-btn-price").setAttribute("style", "color: rgb(213, 137, 71);");
       multiplierbtn.disabled = false;
    }
    else {
@@ -97,14 +97,14 @@ ifMultiplier = () => {
 
 // HIGHLIGHTS & ACTIVATES AUTOCLICK BUTTON WHEN AVAILABLE TO BUY //
 ifAutoclick = () => {
-   if (score >= autoclickprice && !autoclickOn) {
-      autoclickbtn.setAttribute("style", "border: solid red 2px; background-color: rgb(2, 34, 61)");
+   if (score >= autoclickprice) {
+      autoclickbtn.setAttribute("style", "background-color: rgb(2, 34, 61)");
       document.getElementById("autoclick-btn-title").setAttribute("style", "color: white;");
-      document.getElementById("autoclick-btn-price").setAttribute("style", "color: #d6893f;");
+      document.getElementById("autoclick-btn-price").setAttribute("style", "color: rgb(213, 137, 71);");
       autoclickbtn.disabled = false;
    }
    else {
-      autoclickbtn.setAttribute("style", "border: none;");
+      autoclickbtn.removeAttribute("style");
       document.getElementById("autoclick-btn-title").removeAttribute("style");
       document.getElementById("autoclick-btn-price").removeAttribute("style");
       autoclickbtn.disabled = true;
@@ -114,13 +114,13 @@ ifAutoclick = () => {
 // HIGHLIGHTS & ACTIVATES BONUS BUTTON WHEN AVAILABLE TO BUY //
 ifBonus = () => {
    if (score >= bonusprice && !bonusOn) {
-      bonusbtn.setAttribute("style", "border: solid red 2px; background-color: rgb(2, 34, 61)");
+      bonusbtn.setAttribute("style", "background-color: rgb(2, 34, 61)");
       document.getElementById("bonus-btn-title").setAttribute("style", "color: white;");
-      document.getElementById("bonus-btn-price").setAttribute("style", "color: #d6893f;");
+      document.getElementById("bonus-btn-price").setAttribute("style", "color: rgb(213, 137, 71);");
       bonusbtn.disabled = false;
    }
-   else {
-      bonusbtn.setAttribute("style", "border: none;");
+   else {     
+      bonusbtn.removeAttribute("style");
       document.getElementById("bonus-btn-title").removeAttribute("style");
       document.getElementById("bonus-btn-price").removeAttribute("style");
       bonusbtn.disabled = true;
@@ -157,12 +157,12 @@ buyButton = (buttonprice) => {
          multipliersound.play();
          break;
       case autoclickprice :
-         buttonprice = buttonprice + 2000;
+         buttonprice = buttonprice + 500;
          autoclicksound.currentTime = 0;
          autoclicksound.play();
          break;
       case bonusprice :
-         buttonprice = buttonprice + 10000;
+         buttonprice = buttonprice + 1000;
          bonussound.currentTime = 0;
          bonussound.play();
          break;
@@ -194,30 +194,16 @@ multiplierbtn.addEventListener("click", () => {
 // HANDLES AUTOCLICK BUTTON (10 CLICKS/SECOND FOR 10 SECONDS) & COUNTDOWN INTERVAL //
 autoclickbtn.addEventListener("click", () => { 
    if (score >= autoclickprice) {
-      autoclickOn = true;
+      autoclick = autoclick + 1;
       autoclickprice = buyButton(autoclickprice);
       document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
-      autoclicktimer= 10;
-      const autoclickinterval = setInterval(count, 1000);
-      function count() {   // COUNTS 10 SECONDS //
-         if (autoclicktimer <= 0) {            
-            autoclickOn = false;
-            clearInterval(autoclickinterval);
-         }
-         var turbotimer = 1;  
-         const turboclickinterval = setInterval(turbo, 100);
-         function turbo() {   // COUNTS 10 CLICKS //
-            if (turbotimer >= 10) {
-               clearInterval(turboclickinterval);               
-            }
-            addClick();                       
-            addScore(); 
-            turbotimer = turbotimer + 1; 
-         }
-         document.getElementById("autoclick-btn-timer").innerHTML = autoclicktimer + " seconds";
-         autoclicktimer = autoclicktimer-1;                 
-      }  
-   }           
+      clearInterval(autoclickInterval);
+      autoclickInterval = setInterval(autoclickOn, (1000/autoclick));
+      function autoclickOn() {
+         addClick();
+         addScore();
+      }
+   }
 });
 
 // HANDLES BONUS BUTTON & COUNTDOWN INTERVAL //
