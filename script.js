@@ -8,8 +8,8 @@ var multiplierprice = 250;
 var multiplierbtn = document.getElementById("multiplier-btn");
 multiplierbtn.disabled = true;
 var autoclick = 0;
-var autoclickOn = false;
 var autoclickprice = 500;
+var autoclickInterval;
 var autoclickbtn = document.getElementById("autoclick-btn");
 autoclickbtn.disabled = true;
 var bonus = 1;
@@ -63,7 +63,7 @@ bonussound.setAttribute("src", "mp3/bonus.mp3");
 bonussound.setAttribute("preload", "auto");
 bonussound.setAttribute("controls", "none");
 bonussound.setAttribute("style", "display: none;");
-bonussound.volume = 0.5;
+bonussound.volume = 0.3;
 document.body.appendChild(bonussound);
 
 // DISPLAY INITIAL VALUES //
@@ -97,7 +97,7 @@ ifMultiplier = () => {
 
 // HIGHLIGHTS & ACTIVATES AUTOCLICK BUTTON WHEN AVAILABLE TO BUY //
 ifAutoclick = () => {
-   if (score >= autoclickprice && !autoclickOn) {
+   if (score >= autoclickprice) {
       autoclickbtn.setAttribute("style", "background-color: rgb(2, 34, 61)");
       document.getElementById("autoclick-btn-title").setAttribute("style", "color: white;");
       document.getElementById("autoclick-btn-price").setAttribute("style", "color:rgb(101, 105, 109);");
@@ -195,11 +195,11 @@ multiplierbtn.addEventListener("click", () => {
 autoclickbtn.addEventListener("click", () => { 
    if (score >= autoclickprice) {
       autoclick = autoclick + 1;
-      autoclickOn = true;
       autoclickprice = buyButton(autoclickprice);
       document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
-      setInterval(turbo, (1000/autoclick));
-      function turbo() {
+      clearInterval(autoclickInterval);
+      autoclickInterval = setInterval(autoclickOn, (1000/autoclick));
+      function autoclickOn() {
          addClick();
          addScore();
       }
