@@ -84,7 +84,7 @@ ifMultiplier = () => {
    if (score >= multiplierprice) {
       multiplierbtn.setAttribute("style", "background-color: rgb(2, 34, 61)");
       document.getElementById("mult-btn-title").setAttribute("style", "color: white;");
-      document.getElementById("mult-btn-price").setAttribute("style", "color:rgb(101, 105, 109);");
+      document.getElementById("mult-btn-price").setAttribute("style", "color: rgb(213, 137, 71);");
       multiplierbtn.disabled = false;
    }
    else {
@@ -100,7 +100,7 @@ ifAutoclick = () => {
    if (score >= autoclickprice) {
       autoclickbtn.setAttribute("style", "background-color: rgb(2, 34, 61)");
       document.getElementById("autoclick-btn-title").setAttribute("style", "color: white;");
-      document.getElementById("autoclick-btn-price").setAttribute("style", "color:rgb(101, 105, 109);");
+      document.getElementById("autoclick-btn-price").setAttribute("style", "color: rgb(213, 137, 71);");
       autoclickbtn.disabled = false;
    }
    else {
@@ -116,7 +116,7 @@ ifBonus = () => {
    if (score >= bonusprice && !bonusOn) {
       bonusbtn.setAttribute("style", "background-color: rgb(2, 34, 61)");
       document.getElementById("bonus-btn-title").setAttribute("style", "color: white;");
-      document.getElementById("bonus-btn-price").setAttribute("style", "color:rgb(101, 105, 109);");
+      document.getElementById("bonus-btn-price").setAttribute("style", "color: rgb(213, 137, 71);");
       bonusbtn.disabled = false;
    }
    else {     
