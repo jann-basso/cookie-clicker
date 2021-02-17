@@ -162,7 +162,7 @@ map {
 
 .btn-title {
     font-size: 15px;
-    color:rgb(134, 138, 141);
+    color:rgb(101, 105, 109);
 }
 
 .p-container {
@@ -176,8 +176,8 @@ map {
     grid-area: autoclick;
 }
 
-#autoclick-btn-price, #autoclick-btn-timer, #mult-btn-times, #bonus-btn-timer, #mult-btn-price, #autoclick-btn-price, #bonus-btn-price   {
-    color:rgb(134, 138, 141);
+#autoclick-btn-price, #autoclick-btn-timer, #mult-btn-times, #bonus-btn-timer, #mult-btn-price, #autoclick-btn-price, #bonus-btn-price, #autoclick-btn-times   {
+    color:rgb(101, 105, 109);
 }
 
 #multiplier {
