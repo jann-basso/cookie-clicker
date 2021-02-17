@@ -24,7 +24,7 @@
 |                | There is a published GitHub page available.                  |  yes   |
 |                | The readme is complete                                       |  yes   |
 | 2. Is Correct  | The HTML and CSS pass the W3C Validation tool.               |  yes   |
-|                | The lighthouse test scores 90 at least on Performance, Best Practices, Accessibility and SEO. |   yes  |
+|                | The lighthouse test scores 90 at least on Performance, Best Practices, Accessibility and SEO. |   yes (before having to change image to .png again for it to work on Safari)  |
 |                | The indentation is perfect                                   |   yes  |
 
 
