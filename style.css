@@ -176,7 +176,7 @@ map {
     grid-area: autoclick;
 }
 
-#autoclick-btn-price, #autoclick-btn-timer, #mult-btn-times, #bonus-btn-timer, #mult-btn-price, #autoclick-btn-price, #bonus-btn-price   {
+#autoclick-btn-price, #autoclick-btn-timer, #mult-btn-times, #bonus-btn-timer, #mult-btn-price, #autoclick-btn-price, #bonus-btn-price, #autoclick-btn-times   {
     color:rgb(134, 138, 141);
 }
 
