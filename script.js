@@ -72,9 +72,9 @@ document.getElementById("score-lbl").innerHTML = score + " points";
 document.getElementById("mult-btn-times").innerHTML = "x " + multiplier;
 document.getElementById("mult-btn-price").innerHTML = multiplierprice + " points";
 document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
-document.getElementById("autoclick-btn-timer").innerHTML = autoclick + " seconds";
+document.getElementById("autoclick-btn-times").innerHTML = autoclick + " clicks";
 document.getElementById("bonus-btn-price").innerHTML = bonusprice + " points";
-document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " seconds";
+document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " sec";
 
 
 // FUNCTIONS //
@@ -195,6 +195,7 @@ multiplierbtn.addEventListener("click", () => {
 autoclickbtn.addEventListener("click", () => { 
    if (score >= autoclickprice) {
       autoclick = autoclick + 1;
+      document.getElementById("autoclick-btn-times").innerHTML = autoclick + " clicks";
       autoclickprice = buyButton(autoclickprice);
       document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
       clearInterval(autoclickInterval);
@@ -235,4 +236,57 @@ document.getElementById("map").onmouseover = function() {
 document.getElementById("map").onmouseout = function() {
    let cookie = document.getElementById("cookie-img")
    cookie.setAttribute("src", "img/cookie-complete.png")
+}
+
+
+// PLUS ONE
+
+// creating +1
+let floating = document.getElementById("floating-cookies")
+
+let plusone1 = document.createElement("p")
+plusone1.innerHTML = `+ ${multiplier}`
+plusone1.style.fontSize = "x-large"
+plusone1.style.position= "absolute"
+plusone1.style.top = "220px"
+plusone1.style.left = "45%"
+plusone1.style.opacity = "0"
+floating.appendChild(plusone1)
+
+let plusone2 = document.createElement("p")
+plusone2.innerHTML = `+ ${multiplier}`
+plusone2.style.fontSize = "x-large"
+plusone2.style.position= "absolute"
+plusone2.style.top = "210px"
+plusone2.style.left = "50%"
+plusone2.style.opacity = "0"
+floating.appendChild(plusone2)
+
+let plusone3 = document.createElement("p")
+plusone3.innerHTML = `+ ${multiplier}`
+plusone3.style.fontSize = "x-large"
+plusone3.style.position= "absolute"
+plusone3.style.top = "205px"
+plusone3.style.left = "40%"
+plusone3.style.opacity = "0"
+floating.appendChild(plusone3)
+
+document.getElementById("map").onclick = function(){
+    let arrayPlusone = [plusone1, plusone2, plusone3]
+    let randomPlusone = Math.floor(Math.random()*arrayPlusone.length)
+
+    // animating +1
+    arrayPlusone[randomPlusone].animate([
+        {
+            transform: "translateY(0px)",
+            opacity: 1
+        },
+        {
+            transform: "translateY(-150px)",
+            opacity: 0.1
+        }
+    ], {
+        duration: 2000,
+    })
+    
 }
