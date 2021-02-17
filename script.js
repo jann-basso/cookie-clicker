@@ -72,7 +72,7 @@ document.getElementById("score-lbl").innerHTML = score + " points";
 document.getElementById("mult-btn-times").innerHTML = "x " + multiplier;
 document.getElementById("mult-btn-price").innerHTML = multiplierprice + " points";
 document.getElementById("autoclick-btn-price").innerHTML = autoclickprice + " points";
-document.getElementById("autoclick-btn-times").innerHTML = autoclick + " clicks";
+document.getElementById("autoclick-btn-times").innerHTML = autoclick + " click";
 document.getElementById("bonus-btn-price").innerHTML = bonusprice + " points";
 document.getElementById("bonus-btn-timer").innerHTML = bonustimer + " sec";
 
