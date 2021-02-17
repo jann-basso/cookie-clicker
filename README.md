@@ -1,10 +1,14 @@
 # [Cookie Clicker](https://github.com/becodeorg/BXL-Swartz-4-27/blob/master/2.The-Hill/1.Javascript/cookieClicker.md)
 
 ## Who's working on it
-* Gabriela Richards [@richardsgab](https://github.com/richardsgab)
-* Jann Basso [@jann-basso](https://github.com/jann-basso)
-* Marcelo Romero-Cors [@luisromeroaraya](https://github.com/luisromeroaraya)
+### Front-End
+* Jann Basso [@jann-basso](https://github.com/jann-basso) [Project Manager]
 * Paulo Nascimento [@paulolvsn](https://github.com/paulolvsn)
+
+### Back-End
+* Gabriela Richards [@richardsgab](https://github.com/richardsgab)
+* Marcelo Romero-Cors [@luisromeroaraya](https://github.com/luisromeroaraya)
+
 
 ## Final result
 [Check it out!](https://jann-basso.github.io/cookie-clicker/)
