@@ -159,7 +159,7 @@ floating.appendChild(plusone3);
 
 // ADDS CLICK TO COUNT + UPDATES COUNTER DISPLAY //
 addClick = () => {
-   counter = counter + 1;
+   counter = counter + (1*multiplier);
    document.getElementById("counter-lbl").innerHTML = counter;
    cookiesound.currentTime = 0;
    cookiesound.play();
