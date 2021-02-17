@@ -1,4 +1,19 @@
 # [Cookie Clicker](https://github.com/becodeorg/BXL-Swartz-4-27/blob/master/2.The-Hill/1.Javascript/cookieClicker.md)
+
+## Who's working on it
+* Gabriela Richards [@richardsgab](https://github.com/richardsgab)
+* Jann Basso [@jann-basso](https://github.com/jann-basso)
+* Marcelo Romero-Cors [@luisromeroaraya](https://github.com/luisromeroaraya)
+* Paulo Nascimento [@paulolvsn](https://github.com/paulolvsn)
+
+## Final result
+[Check it out!](https://jann-basso.github.io/cookie-clicker/)
+
+## UX Prototype
+![mockup](/img/mockup.jpeg)
+
+
+## The project (by BeCode)
 * Repository: ```Javascript```
 * Type of Challenge: ```Consolidation```
 * Duration: ```3 days```
@@ -79,11 +94,3 @@ Steps
 * [cookie clicker](http://orteil.dashnet.org/cookieclicker/)
 * [particle clicker](https://particle-clicker.web.cern.ch/particle-clicker/)
 
-## Who's working on it
-* Gabriela Richards @richardsgab
-* Jann Basso @jann-basso
-* Marcelo Romero-Cors @luisromeroaraya
-* Paulo Nascimento @paulolvsn
-
-## Final result
-[Check it out!](https://jann-basso.github.io/cookie-clicker/)
