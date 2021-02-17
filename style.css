@@ -115,15 +115,104 @@ map {
     cursor: pointer;
 }
 
+
+/* floating cookies */
 #floating-cookies {
     visibility: visible;
     position: relative;
     height: 65%;
 }
 
-
 .float-cookie {
-    visibility: hidden;
+    visibility: visible;
+    position: absolute;
+    width: 5%;
+    animation: fall 5s linear infinite;
+}
+
+.float-cookie-1 {
+    top: 200px;
+    left: 5%;
+    animation-delay: 2s;
+}
+
+.float-cookie-2 {
+    top: 100px;
+    right: 3%;
+}
+
+.float-cookie-3 {
+    top: 70px;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+.float-cookie-4 {
+    top: 200px;
+    right: 5%;
+    animation-delay: 1s;
+}
+
+.float-cookie-5 {
+    top: 400px;
+    left: 12%;
+    animation-delay: 3s;
+}
+
+.float-cookie-6 {
+    top: 300px;
+    right: 10px;
+    animation-delay: 2s;
+}
+
+.float-cookie-7 {
+    top: 25px;
+    left: 10%;
+    animation-delay: 4s;
+}
+
+.float-cookie-8 {
+    top: 40px;
+    right: 16%;
+    animation-delay: 3s;
+}
+
+.float-cookie-9 {
+    top: 300px;
+    left: 15%;
+    animation-delay: 4s;
+}
+
+.float-cookie-10 {
+    top: 350px;
+    right: 13%;
+    animation-delay: 1s;
+}
+
+.float-cookie-11 {
+    top: 410px;
+    right: 5%;
+    animation-delay: 3s;  
+}
+
+
+@keyframes fall{
+    0% {
+        opacity: 0;
+        top: 50%;
+        transform: translateY(-10px) rotate(30deg);
+        transform: translateX(-5%) rotate(0deg);
+    }
+    40% {
+        opacity: 0.9;
+        transform: translateY(40px) rotate(20deg);
+        transform: translateX(-10%) rotate(90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-10px) rotate(30deg);
+        transform: translateX(-5%) rotate(225deg);
+    }
 }
 
 
@@ -257,7 +346,7 @@ a:hover {
 
    .thebtns {
         padding: 25px;
-        width: 50%;
+        width: 70%;
         height: 100px;
    }
 
@@ -267,109 +356,10 @@ a:hover {
         justify-content: space-between;
         text-align: center;
    }
-
 }
 
-
-@media screen and (min-width: 801px) { 
-   /* floating cookies */
-   #floating-cookies {
-        visibility: visible;
-        position: relative;
-        height: 65%;
-    }
-    
-    .float-cookie {
-        visibility: visible;
-        position: absolute;
-        width: 5%;
-        animation: fall 5s linear infinite;
-    }
-
-    .float-cookie-1 {
-        top: 200px;
-        left: 5%;
-        animation-delay: 2s;
-    }
-
-    .float-cookie-2 {
-        top: 100px;
-        right: 3%;
-    }
-
-    .float-cookie-3 {
-        top: 70px;
-        left: 20%;
-        animation-delay: 4s;
-    }
-
-    .float-cookie-4 {
-        top: 200px;
-        right: 5%;
-        animation-delay: 1s;
-    }
-
-    .float-cookie-5 {
-        top: 400px;
-        left: 12%;
-        animation-delay: 3s;
-    }
-
-    .float-cookie-6 {
-        top: 300px;
-        right: 10px;
-        animation-delay: 2s;
-    }
-
-    .float-cookie-7 {
-        top: 25px;
-        left: 10%;
-        animation-delay: 4s;
-    }
-
-    .float-cookie-8 {
-        top: 40px;
-        right: 16%;
-        animation-delay: 3s;
-    }
-
-    .float-cookie-9 {
-        top: 300px;
-        left: 15%;
-        animation-delay: 4s;
-    }
-
-    .float-cookie-10 {
-        top: 350px;
-        right: 13%;
-        animation-delay: 1s;
-    }
-
-    .float-cookie-11 {
-        top: 410px;
-        right: 5%;
-        animation-delay: 3s;  
-    }
-
-}
-
-    @keyframes fall{
-        0% {
-            opacity: 0;
-            top: 50%;
-            transform: translateY(-10px) rotate(30deg);
-            transform: translateX(-5%) rotate(0deg);
-        }
-        40% {
-            opacity: 0.9;
-            transform: translateY(40px) rotate(20deg);
-            transform: translateX(-10%) rotate(90deg);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(-10px) rotate(30deg);
-            transform: translateX(-5%) rotate(225deg);
-        }
-    }
-
+@media screen and (min-width: 1200px) {
+    .thebtns {
+        width: 50%;
+   }
 }
