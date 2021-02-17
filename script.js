@@ -29,6 +29,7 @@ music.loop = true;
 music.volume = 0.2;
 music.setAttribute("style", "display: none;");
 document.body.appendChild(music);
+music.play();
 
 // CREATE SOUND FX //
 var cookiesound = document.createElement("audio");
@@ -180,7 +181,7 @@ addClick = () => {
    )  
 }
 
-// ADDS POINTS TO SCORE + UPDATES SCORE DISPLAY + VERIFIES PURCHASES OPTIONS//
+// ADDS POINTS TO SCORE + UPDATES SCORE DISPLAY + VERIFIES PURCHASES OPTIONS //
 addScore = () => {
    score = score + (points * multiplier) * bonus;
    document.getElementById("score-lbl").innerHTML = score  + " points";   
