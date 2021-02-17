@@ -162,7 +162,6 @@ addClick = () => {
    document.getElementById("counter-lbl").innerHTML = counter;
    cookiesound.currentTime = 0;
    cookiesound.play();
-   music.play();
    let arrayPlusone = [plusone1, plusone2, plusone3]
    let randomPlusone = Math.floor(Math.random()*arrayPlusone.length)
    arrayPlusone[randomPlusone].animate([ // ANIMATE +X // 
@@ -284,4 +283,25 @@ document.getElementById("map").onmouseover = function() {
 document.getElementById("map").onmouseout = function() {
    let cookie = document.getElementById("cookie-img")
    cookie.setAttribute("src", "img/cookie-complete.webp")
+}
+
+
+// MODAL //
+
+var modal = document.getElementById("welcome");
+var play = document.getElementsByClassName("play")[0];
+
+window.onload = function() {
+   modal.style.display = "block";
+}
+
+play.onclick = function() {
+   music.play();
+   modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+   if (event.target == modal) {
+      modal.style.display = "none";
+   }
 }
